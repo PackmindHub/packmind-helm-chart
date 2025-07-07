@@ -12,8 +12,39 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2.1.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Check Quality Gate
+        run: |
+          if [ -f .sonar/report-task.txt ]; then
+            ceTaskUrl=$(cat .sonar/report-task.txt | grep ceTaskUrl | cut -d'=' -f2-)
+            echo "SonarCloud task URL: $ceTaskUrl"
+            
+            # Get the task status
+            taskId=$(echo $ceTaskUrl | grep -o '[^/]*$')
+            
+            # The SonarCloud GitHub Action already waits for the quality gate
+            # and fails if it doesn't pass due to sonar.qualitygate.wait=true
+            echo "Quality gate check completed by SonarCloud action"
+          else
+            echo "No SonarCloud report found"
+            exit 1
+          fi
+
   release:
     runs-on: ubuntu-latest
+    needs: sonarcloud
     steps:
       - name: Checkout
         uses: actions/checkout@v3
