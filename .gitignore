@@ -6,3 +6,7 @@ charts/sso/values-*
 charts/sso/.env.*
 charts/packmind/values-*
 *.sh
+
+.nx/installation
+.nx/cache
+.nx/workspace-data
