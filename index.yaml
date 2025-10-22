@@ -18,6 +18,22 @@ entries:
     - https://github.com/PackmindHub/packmind-helm-chart/releases/download/packmind-1.4.0/packmind-1.4.0.tgz
     version: 1.4.0
   - apiVersion: v2
+    appVersion: 1.3.4
+    created: "2025-10-22T12:44:15.184678076Z"
+    description: Elevate developers and code with Packmind
+    digest: 9a86ef93114e9a6c9cf80de4c250497b540956f598bd118216742c8ddd990ae2
+    home: https://github.com/packmindhub/packmind-helm-chart
+    icon: https://packmind.com/wp-content/uploads/2024/01/LogoMark_Packmind.png
+    maintainers:
+    - email: cedric.teyton@packmind.com
+      name: cteyton
+      url: https://github.com/cteyton
+    name: packmind
+    type: application
+    urls:
+    - https://github.com/PackmindHub/packmind-helm-chart/releases/download/packmind-1.3.4/packmind-1.3.4.tgz
+    version: 1.3.4
+  - apiVersion: v2
     appVersion: 1.3.3
     created: "2025-08-27T10:23:49.035657377Z"
     description: Elevate developers and code with Packmind
@@ -173,4 +189,4 @@ entries:
     urls:
     - https://github.com/PackmindHub/packmind-helm-chart/releases/download/packmind-1.0.0/packmind-1.0.0.tgz
     version: 1.0.0
-generated: "2025-08-27T10:23:49.035705207Z"
+generated: "2025-10-22T12:44:15.184730103Z"
