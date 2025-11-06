@@ -1,3 +1,11 @@
+
+# IMPORTANT
+> [!WARNING]
+> ⚠️ **This repository is deprecated and no longer maintained.**
+> 
+> Please use the new Packmind AI Helm Chart repository:
+> **https://github.com/PackmindHub/packmind-ai-helm-chart**
+
 ![Packmind](CoverPackmind.png)
 
 # Helm chart for Packmind
